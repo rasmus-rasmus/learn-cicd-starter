@@ -20,7 +20,7 @@ jobs:
         run: ./scripts/buildprod.sh
 
       - name: Setup GCP
-        uses: google-github-actions/setup-gcloud@master
+        uses: google-github-actions/setup-gcloud@v2.1.0
         with:
           service_account_key: ${{ secrets.GCP_CREDENTIALS }}
           export_default_credentials: true # This line is important
