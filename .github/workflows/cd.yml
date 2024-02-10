@@ -19,5 +19,11 @@ jobs:
       - name: Build app
         run: ./scripts/buildprod.sh
 
+      - name: Setup GCP
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+          export_default_credentials: true # This line is important
+
       - name: Build docker image
         run: gcloud builds submit --project notely-413719 --tag us-central1-docker.pkg.dev/notely-413719/notely-ar-docker/notely:latest .
